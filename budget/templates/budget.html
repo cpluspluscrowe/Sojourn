@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta charset="UTF-8">
+<title>Sojourn Budget Sheet</title>
+</head>
+
+
+<body>
+<h1 id = "Sojourn_Title">Sojourn Church Giving Sheet</h1><h1 id = "Date">Date: {{ date }}</h1>
+<div>
+<div id = "higher">
+<div id = "Check_Offering_title" class = "Check_Offering">
+<h2>Sojourn Offering - Check</h2>
+  <table  id = "check_table" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Check #</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody id = "check_data">
+      <tr>
+        <td><input value="First Last" class = "inputName CheckName"></td>
+        <td><input class = "CheckCheck"></td>
+        <td>$ <input value="0.00" class = "inputMoney check_amnt CheckMoney"></td>
+      </tr>
+    </tbody>
+        <tbody>
+          <tr>
+        <td colspan="2">Total Gen Offering Checks (Sum)</td>
+        <td>$ <input value="0.00" id = "check_total"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div id = "Cash_Offering_Title" class = "Cash_Offering">
+<h2>Sojourn Offering - Cash</h2>
+  <table id = "cash_table" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody id = "cash_data">
+      <tr>
+        <td><input value="First Last" class = "inputName CashName"></td>
+        <td>$ <input value="0.00" class = "inputMoney cash_amnt cash_amnt_col"></td>
+      </tr>
+    </tbody>
+        <tbody>
+      <tr>
+        <td>Loose Cash Total</td>
+        <td>$ <input value="0.00" class = "input LooseCash cash_amnt_col"></td>
+      </tr>
+      <tr>
+        <td>Total General Offering Cash</td>
+        <td>$ <input value="0.00" id = "Total_Cash"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+</div>
+
+<div id="lower">
+<div id = "lower">
+<div id = "Organization_Contribution_Title" class = "Organization_Contribution">
+<h2>Contribution from other Organizations (Mail)</h2>
+  <table   id = "organization_table" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Check #</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody id = "organization_data">
+      <tr>
+        <td><input value="First Last" class = "inputName Org_Name"></td>
+        <td><input class = "OrgCheckCheck"></td>
+        <td>$ <input value="0.00" class = "inputMoney org_money"></td>
+      </tr>
+        <tbody id = "organization_total_row">
+          <tr>
+          <td colspan="2">Other Organization Total</td>
+          <td>$ <input value="0.00" id = "org_total"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id = "Designated_Offering_Title" class = "Designated_Offering">
+<h2>Designated Offering - Cash and Checks (Sojourn Special Account)</h2>
+  <table   id = "designated_table" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+          <th>Check #</th>
+        <th>Amount</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input value="First Last" class = "inputName"></td>
+          <td><input></td>
+        <td>$ <input value="0.00" class = "inputMoney moneyDesignation"></td>
+        <td><input></td>
+      </tr>
+    </tbody>
+        <tbody>
+          <tr>
+        <td>Designated Contribution Total</td>
+              <td></td>
+        <td>$ <input value="0.00" id = "Designation_Total"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+</div>
+    <input type="submit" class="styled-button-8" value="Save" id = "save_all" value = 5/>
+</body>
+<input type="value" hidden value = 1 id = "checkCnt">
+<input type="value" hidden value = 1 id = "cashCnt">
+<input type="value" hidden value = 1 id = "contCnt">
+<input type="value" hidden value = 1 id = "desigCnt">
+</html>
+
+<button id = "check_button" class = "check btn">+</button>
+
+<button id = "cash_button" class = "organization btn">+</button>
+
+<button id = "organization_button" class = "cash btn">+</button>
+
+<button id = "designated_button" class = "designated btn">+</button>
+<style type="text/css">
+.styled-button-8 {
+	background: #25A6E1;
+	background: -moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+	background: -webkit-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -o-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -ms-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
+	padding:12px 18px;
+	color:#fff;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:17px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border:1px solid #1A87B9
+}
+</style>
+<style>
+    #save_all{
+        position:absolute;
+        float:right;
+        left:28%;
+        top:2%;
+    }
+    #higher {
+        margin-top:10%;
+    }
+    #Date {
+        position:absolute;
+        float:right;
+        left:40%;
+        top:0%;
+    }
+    #Sojourn_Title {
+        position:absolute;
+        float:left;
+        left:0%;
+        top:0%;
+    }
+    #Check_Offering_title {
+        position:absolute;
+        float:left;
+        top:10%;
+        left:0%;
+        width:35%;
+    }
+    #Cash_Offering_Title {
+        position:absolute;
+        float:right;
+        top:10%;
+        left:40%;
+        width:35%;
+    }
+    #Organization_Contribution_Title {
+        position:absolute;
+        float:left;
+        top:35%;
+        left:0%;
+        width:35%;
+    }
+    #Designated_Offering_Title {
+        position:absolute;
+        float:right;
+        top:40%;
+        left:40%;
+        width:50%;
+    }
+    .btn {
+  background: #3498db;
+  font-size:33px;
+  font-family: Arial;
+  color: #ffffff;
+  text-decoration: none;
+}
+    #check_button {
+  position:absolute;
+  top:17.2%;
+  left:35%;
+    }
+ #designated_button {
+  position:absolute;
+  top:47.2%;
+  left:90%;
+    }
+ #cash_button {
+  position:absolute;
+  top:17.2%;
+  left:74.95%;
+    }
+  #organization_button {
+  position:absolute;
+  top:42.2%;
+  left:35%;
+    }
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+    position:absolute;
+}
+ .organization {
+  position:absolute;
+  top:47.2%;
+  left:35%;
+  float:left;
+    }
+</style>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script>
+
+
+
+  $( document ).ready(function() {
+    $( "#check_button" ).click(function() {
+        $('#check_table').append('<tr><td><input value="First Last" class = "inputName CheckName"></td><td><input class = "CheckCheck"></td><td>$ <input value="0.00" class = "inputMoney check_amnt checkMoney"></td></tr>');
+        $("#Organization_Contribution_Title").css('top', '+=50');
+        $("#organization_button").css('top','+=50');
+        $("#checkCnt")[0].value = parseFloat($("#checkCnt")[0].value) + 1;
+
+    });
+       $( "#cash_button" ).click(function() {
+        $('#cash_table').append('<tr><td><input value="First Last" class = "inputName CashName"></td><td>$ <input value="0.00" class = "inputMoney cash_amnt cash_amnt_col"></td></tr>');
+           $("#Designated_Offering_Title").css('top', '+=50');
+           $("#designated_button").css('top','+=50');
+           $("#cashCnt")[0].value = parseFloat($("#cashCnt")[0].value) + 1;
+    });
+       $( "#organization_button" ).click(function() {
+        $('#organization_table').append('<tr><td><input value="First Last" class = "inputName Org_Name"></td><td><input class = "OrgCheckCheck"></td><td>$ <input value="0.00" class = "inputMoney org_money"></td></tr>');
+        $("#contCnt")[0].value = parseFloat($("#contCnt")[0].value) + 1;
+    });
+       $( "#designated_button" ).click(function() {
+        $('#designated_table').append('<tr><td><input value="First Last" class = "inputName"></td><td><input></td><td>$ <input value="0.00" class = "inputMoney moneyDesignation"></td><td><input></td></tr>');
+        $("#desigCnt")[0].value = parseFloat($("#desigCnt")[0].value) + 1;
+    });
+      $('.inputName').on('click focusin', function() {
+          if(this.value = "First Last") {
+              this.value = '';
+          }
+      });
+      $('.LooseCash').on('click focusin', function() {
+          if(this.value = "0.00") {
+              this.value = '';
+          }
+      });
+      $('.LooseCash').on('focusout', function() {
+          if(!this.value) {
+              this.value = "0.00";
+          }
+      });
+      $('.inputMoney').on('click focusin', function() {
+        this.value = '';
+      });
+      $('.inputMoney').on('focusout', function() {
+          if(!this.value) {
+              this.value = '0.00';
+          }else{
+              var sum = parseFloat(0);
+              for (i = 0; i < $(".check_amnt").length; i++) {
+                  sum += parseFloat($(".check_amnt")[i].value);
+              }
+              $("#check_total")[0].value = parseFloat(sum).toFixed(2);
+          }
+      });
+      $('.cash_amnt_col').on('focusout', function() {
+
+              var sum = parseFloat(0);
+              for (i = 0; i < $(".cash_amnt_col").length; i++) {
+                  sum += parseFloat($(".cash_amnt_col")[i].value);
+              }
+              $("#Total_Cash")[0].value = parseFloat(sum).toFixed(2);
+      });
+      $('.moneyDesignation').on('focusout', function() {
+
+              var sum = parseFloat(0);
+              for (i = 0; i < $(".moneyDesignation").length; i++) {
+                  sum += parseFloat($(".moneyDesignation")[i].value);
+              }
+              $("#Designation_Total")[0].value = parseFloat(sum).toFixed(2);
+      });
+      $('.org_money').on('focusout', function() {
+
+              var sum = parseFloat(0);
+              for (i = 0; i < $(".org_money").length; i++) {
+                  sum += parseFloat($(".org_money")[i].value);
+              }
+              $("#org_total")[0].value = parseFloat(sum).toFixed(2);
+      });
+      $('.inputName').on('focusout', function() {
+          if(!this.value) {
+              this.value = "First Last";
+          }
+      });
+  });
+</script>
+<script type="text/javascript">
+					$(document).ready(function() {
+					    $("#check_button,#cash_button,#organization_button,#designated_button").click(function () {
+					        $.ajax({
+					            url: "/AddJS/",
+					            type: "GET",
+					            data: {
+					            },
+					            success: function (data) {
+                                    $("script").append(data.js_to_add);
+                                    var obj = jQuery.parseJSON(data);
+                                    $("body").append(obj.js_to_add);
+					            },
+					            error: function (data) {
+
+					            }
+					        });
+					    });
+					})
+</script>
+<script type="text/javascript">
+					$(document).ready(function() {
+					    $("#save_all").click(function () {
+                            t = $(".check_amnt");
+                            s = "";
+                            for(var i = 0; i < t.length; i++) {
+                                s += t[i].value + " ";
+                            }
+                            t2 = $(".org_money");
+                            s2 = ""
+                            for(var i = 0; i < t2.length; i++) {
+                                s2 += t2[i].value + " ";
+                            }
+                            t3 = $(".cash_amnt_col");
+                            s3 = ""
+                            for(var i = 0; i < t3.length; i++) {
+                                s3 += t3[i].value + " ";
+                            }
+                            t4 = $(".moneyDesignation");
+                            s4 = ""
+                            for(var i = 0; i < t4.length; i++) {
+                                s4 += t4[i].value + " ";
+                            }
+                            t5 = $(".CheckCheck");
+                            s5 = ""
+                            for(var i = 0; i < t5.length; i++) {
+                                s5 += t5[i].value + " ";
+                            }
+                            t6 = $(".CheckName");
+                            s6 = ""
+                            for(var i = 0; i < t6.length; i++) {
+                                s6 += t6[i].value + " ";
+                            }
+                            t7 = $(".CashName");
+                            s7 = ""
+                            for(var i = 0; i < t7.length; i++) {
+                                s7 += t7[i].value + " ";
+                            }
+                            t8 = $(".OrgCheckCheck");
+                            s8 = ""
+                            for(var i = 0; i < t8.length; i++) {
+                                s8 += t8[i].value + " ";
+                            }
+                            t9 = $(".Org_Name");
+                            s9 = ""
+                            for(var i = 0; i < t9.length; i++) {
+                                s9 += t9[i].value + " ";
+                            }
+					        $.ajax({
+					            url: "/budget/save/",
+					            type: "GET",
+					            data: {
+                                    "Check_String":s,"Org_String":s2,
+                                    "Cash_String":s3,"Desig_String":s4,
+                                    "Cash_Name":s7,"Check_Name":s6,"Check_Number":s5,
+                                    "Org_Name":s9,"OrgCheck_Value":s8
+					            },
+					            success: function (data) {
+                                    alert("Saved!");
+					            },
+					            error: function (data) {
+
+					            }
+					        });
+					    });
+					})
+</script>
