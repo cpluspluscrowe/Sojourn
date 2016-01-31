@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'budget.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'proproject_db',
-        'USER': 'general',
-        'PASSWORD':'general',
+        'NAME': 'Sojo',
+        'USER': 'Chad',
+        'PASSWORD':'Crowe',
     }
 }
 
