@@ -10,6 +10,7 @@ class Person(models.Model):
     city = models.CharField(max_length = 30,null = True)
     state = models.CharField(max_length = 20,null = True)
     zip_code = models.CharField(max_length = 5,null = True)
+    #total_givings = models.DecimalField(max_digits=7, decimal_places=2)
 
 @receiver(post_save,sender = User)
 def create_user_profile(sender,instance,created,**kwargs):
