@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .forms import CheckForm
+from django.contrib.auth.models import  User
+from .models import  Check,Cash
+from person_manager.models import Person
 # Create your views here.
 import datetime
 import json
@@ -8,12 +11,17 @@ today = datetime.datetime.now().strftime("%m-%d-%Y")
 def budget_sheet(request):
     template = 'budget.html'
     form = CheckForm(request.POST or None)
+    all_names = []
+    users = User.objects.all()
+    for x in users:
+        all_names.append(str(x.first_name) + " " +  str(x.last_name))
+    print(all_names)
     if form.is_valid():
         check = form.save(commit = False)
         check.save()
         context = {'form':form}
         return(render(request,template,context))
-    context = {'form':form,'date':today}
+    context = {'form':form,'date':today,"all_names":all_names}
     return(render(request,template,context))
 
 def add_js(request):
@@ -74,28 +82,46 @@ def add_js(request):
 
 def save_data(request):
     print("Save Data Function Called")
+    DesignatedName = request.GET["DesignatedName"].split("_")[:-1]
     today = datetime.datetime.now().strftime("%m-%d-%Y")
     check_string = request.GET['Check_String']
     #"Check_String":s,"Org_String":s2,"Cash_String":s3,"Design_String":s4
     org_string = request.GET['Org_String'].split(" ")
     cash_string = request.GET['Cash_String'].split(" ")
     desig_string = request.GET['Desig_String'].split(" ")
-    cash_name = request.GET['Cash_Name'].split(" ")
-    check_name = request.GET['Check_Name'].split(" ")
+    cash_name = request.GET['Cash_Name'].split("_")[:-1]
+    check_name = request.GET['Check_Name'].split("_")[:-1]
     check_number = request.GET['Check_Number'].split(" ")
-    org_name = request.GET["Org_Name"].split(" ")
+    org_name = request.GET["Org_Name"].split("_")[:-1]
     orgCheck_name = request.GET['OrgCheck_Value'].split(" ")
 
-    print(check_string)
-    print(org_string)
-    print(cash_string)
-    print(desig_string)
-    print(cash_name)
-    print(check_name)
-    print(desig_string)
-    print(cash_name)
-    print(check_name)
+    for x in range(len(check_name)):
+        print("Check section")
+        first_name = check_name[x].split(" ")[0]
+        last_name = check_name[x].split(" ")[1]
+        if first_name != "First" and last_name != "Last":
+            check_num = check_number[x]
+            check_str = check_string[x]
+            user = User.objects.get(first_name = first_name, last_name = last_name)
+            person = Person.objects.get(corresponding_user = user)
+            print("person",person)
+            #person.total_givings += float(check_str)
+            Check.objects.create(person = person,number = check_num , amount = check_str )
+            print("success")
 
+    for x in range(len(cash_name)):
+        print("Cash section")
+        first_name = check_name[x].split(" ")[0]
+        last_name = check_name[x].split(" ")[1]
+        if first_name != "First" and last_name != "Last":
+            first_name = cash_name[x].split(" ")[0]
+            last_name = cash_name[x].split(" ")[1]
+            cash_num = cash_string[x]
+            user = User.objects.get(first_name = first_name, last_name = last_name)
+            person = Person.objects.get(corresponding_user = user)
+            #person.total_givings += float(cash_num)
+            Cash.objects.create(person = person, amount = cash_num )
+            print("success")
 
 
     context = {}
