@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 import os
 import sys
 from django.core.wsgi import get_wsgi_application
-sys.path.append('/home/ccrowe2/Sojourn/budget/budget')
+sys.path.append('/home/ubuntu/Sojourn/budget/budget')
+sys.path.append('/home/ubuntu/Sojourn/budget/')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "budget.settings")
 
 application = get_wsgi_application()
