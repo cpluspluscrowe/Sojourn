@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="marketing-layout subscriptions-controller new-action visitor chrome webkit windows" id="layout" data-featurette="marketing-layout"  >
+  <head>
+    <title>Add User Data</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"d98036d1cc","applicationID":"1824378","transactionName":"cQ5eRRQNCQ8BFhZLQlASU0MPEhEKCwpKF1lXFg==","queueTime":1,"applicationTime":378,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwIBVldWGwIIVlVRAAk="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function s(n,r,o){t&&t(n,r,o);for(var i=e(o),a=f(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);return i}function c(t,e){d[t]=f(t).concat(e)}function f(t){return d[t]||[]}function u(){return r(s)}var d={};return{on:c,emit:s,create:u,listeners:f,context:e,_events:d}}function o(){return new n}var i="nr@context",a=t("gos");e.exports=r()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:25,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(1),t(2),"addEventListener"in window&&t(3),a.xhrWrappable&&t(4),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:26,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){if(window.addEventListener){var e=t("handle"),n=t("ee");t(1),window.addEventListener("click",function(){e("inc",["ck"])},!1),window.addEventListener("hashchange",function(){e("inc",["hc"])},!1),n.on("pushState-start",function(){e("inc",["ps"])})}},{1:9,ee:"QJf3ax",handle:"D5DuLP"}],6:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],7:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:11,2:10,3:9,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").create(),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:27,ee:"QJf3ax",gos:"7eSDFh"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:27,ee:"QJf3ax"}],10:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:27,ee:"QJf3ax"}],11:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:27,ee:"QJf3ax"}],12:[function(t,e){function n(){f.inPlace(this,l,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-",o)}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:8,2:27,ee:"QJf3ax"}],13:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=this.lastSize||n(t);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t){var e=t.responseType,n="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return r(n)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=0,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:14,3:16,4:12,5:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],14:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],15:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:25,2:26,handle:"D5DuLP"}],16:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-852.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()]);var h=0},{1:25,2:15,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],25:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],26:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],27:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:26,ee:"QJf3ax"}]},{},["G9z0Bl",4,13,7,6,5]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="google-site-verification" content="4Ga-viQvIZUFNQXu323xpp_24RDlLooxwlpnXhinjPA" />
+    <meta name="msvalidate.01" content="F0716E70B7DD3B8C892B48891CA4B541" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="L3qK5WlcTLQ4A44l0qADKWY9NSic6Ex+ySvoI3ctKFotLQRQYRdEpRjcQcvUMRPDsgoAJUeuQmmoQPtq+5o8Pg==" />
+
+
+
+
+    <script>
+//<![CDATA[
+window.appData = '{\"controller_name\":\"subscriptions\",\"action_name\":\"new\",\"app_version\":\"cddb4fce54f250364af221dda86a37c8a73be5ef\"}'
+//]]>
+</script>
+
+    <link rel="stylesheet" media="screen" href="https://static.teamtreehouse.com/assets/vendor-5bc4e492d0baccf9ee77470baef953db.css" />
+<link rel="stylesheet" media="screen" href="https://static.teamtreehouse.com/assets/marketing-4961814f146357bda8da94d1a9a1ceac.css" />
+
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7055252/762022/css/fonts.css" />
+
+
+    <style media="print">
+      header, footer, .graph, .nav, svg {
+        display: none
+      }
+    </style>
+
+    <link rel="shortcut icon" href="/assets/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://static.teamtreehouse.com/assets/apple-touch-icon-60x60-precomposed-0c535bd2d450d0d63674d42e0211fa06.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://static.teamtreehouse.com/assets/apple-touch-icon-76x76-precomposed-70428f11bacc8386f67bd0d9a2bb6f3d.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://static.teamtreehouse.com/assets/apple-touch-icon-120x120-precomposed-f57b728bdb270f61fd44beb7977a1061.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://static.teamtreehouse.com/assets/apple-touch-icon-152x152-precomposed-e90e32857e94eba5b12983a5b2530fe6.png" />
+
+    <link href="https://teamtreehouse.com/subscribe/new?plan=3&amp;trial=yes" rel="canonical" />
+
+
+    <script src="//cdn.optimizely.com/js/2281002.js"></script>
+
+      <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+  mixpanel.init("7b38bdec31b0d42dc60b2c77d946e5ad");</script><!-- end Mixpanel -->
+
+
+
+
+    <script type="text/javascript">
+(function() {
+  var s = document.createElement('script'),
+  e = document.getElementsByTagName('script')[0];
+  s.src = '//d3cxv97fi8q177.cloudfront.net/foundation-A187849-72ad-44c6-83bc-3d4f458b85e71.min.js';s.type = 'text/javascript';s.async = true;s.id="irfOuterTag";
+  e.parentNode.insertBefore(s, e);
+
+})();
+</script>
+<noscript><img src="//tl.r7ls.net/unscripted/187849" width="1" height="1"></noscript>
+
+
+
+  </head>
+  <body  class="windows chrome webkit ">
+
+          <div class="row">
+            <div class="twelve columns">
+              <fieldset class="form-division">
+                <h3><span class="form-step"></span>Your basic information</h3>
+                <div class="row">
+                  <div class="form-item four columns">
+                    <label id = "first_name"
+for="account_signup_first_name">First name <span>*</span></label>
+                    <input autocomplete="given-name" class="first_name_text input-text input-text" type="text" value="" name="account_signup[first_name]" id="account_signup_first_name" />
+</div>
+                  <div class="form-item five columns">
+                    <label id = "last_name"
+for="account_signup_last_name">Last name <span>*</span></label>
+                    <input autocomplete="family-name" class="last_name_text input-text input-text" type="text" value="" name="account_signup[last_name]" id="account_signup_last_name" />
+</div>
+                  <div class="age-check form-item three columns">
+
+</div>                </div>
+                <div class="row">
+                    <div class="form-item twelve columns above-13">
+                      <label id = "email_address" for="account_signup_company_name">Email address *</label>
+                      <input autocomplete="organization" class="email_address_text input-text input-text" type="text" name="account_signup[company_name]" id="account_signup_company_name" />
+<span class="tooltip tooltip-right featurette" data-featurette="tooltip" data-hide="true" style="display: none;" data-hide-on-mobile="doit"><span class="note">Complete this field if you&#39;d like us to put your Company&#39;s name on your invoice.</span><span class="icon icon-tooltip-carrot"></span></span></div>                </div>
+              </fieldset>
+              <hr>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="twelve columns">
+              <fieldset class="form-division">
+                <h3><span class="form-step"></span>Your Address Info</h3>
+                <div class="under-13" style="display: none;">
+                  <p class="payment-note">Be sure to use different email addresses for child and guardian when signing up. If you have any questions please <a href="mailto:help@teamtreehouse.com">drop us a line</a>.</p>
+                </div>
+                <div class="row">
+                  <div class="form-item six columns">
+                  <label id = "street" for="account_signup_email">Street <span>*</span></label>
+                  <input autocomplete="street" class="street_text input-text" type="email" ="" name="account_signup[email]" id="account_signup_email" />
+</div>
+                                      <div class="form-item six columns">
+                  <label id = "city" for="account_signup_city" value = "City"><span></span></label>
+                  <input  class="city_text input-text"  />
+</div>
+                                                          <div>
+                  <label type = "text" id = "zip_code" for="account_signup_zip" value = "Zip Code" text = "Zip Code"><span></span></label>
+                  <input  class=" input-text zip_code_text"  />
+</div>
+
+<div class="form-item six columns">
+                                                     <select id = "state" name="account_signup[age_check]" id="account_signup_age_state"><option value="">State</option>
+<option value="lt13">AL</option>
+<option value="lt13">AK</option>
+<option value="lt13">AZ</option>
+<option value="lt13">AR</option>
+<option value="lt13">CA</option>
+<option value="lt13">CO</option>
+<option value="lt13">CT</option>
+<option value="lt13">DE</option>
+<option value="lt13">FL</option>
+<option value="lt13">GA</option>
+<option value="lt13">HI</option>
+<option value="lt13">ID</option>
+<option value="lt13">IL</option>
+<option value="lt13">IN</option>
+<option value="lt13">IA</option>
+<option value="lt13">KS</option>
+<option value="lt13">KY</option>
+<option value="lt13">LA</option>
+<option value="lt13">ME</option>
+<option value="lt13">MD</option>
+<option value="lt13">MA</option>
+<option value="lt13">MI</option>
+<option value="lt13">MN</option>
+<option value="lt13">MS</option>
+<option value="lt13">MO</option>
+<option value="lt13">MT</option>
+<option value="lt13">NE</option>
+<option value="lt13">NV</option>
+<option value="lt13">NH</option>
+<option value="lt13">NJ</option>
+<option value="lt13">NM</option>
+<option value="lt13">NY</option>
+<option value="lt13">NC</option>
+<option value="lt13">ND</option>
+<option value="lt13">OH</option>
+<option value="lt13">OK</option>
+<option value="lt13">OR</option>
+<option value="lt13">PA</option>
+<option value="lt13">RI</option>
+<option value="lt13">SC</option>
+<option value="lt13">SD</option>
+<option value="lt13">TN</option>
+<option value="lt13">TX</option>
+<option value="lt13">UT</option>
+<option value="lt13">VT</option>
+<option value="lt13">VA</option>
+<option value="lt13">WA</option>
+<option value="lt13">WV</option>
+<option value="lt13">WI</option>
+<option value="lt13">WY</option>
+
+</select>
+
+</div>
+                                                          <div class="form-item six columns">
+                  <label for="account_signup_email"><span></span></label>
+                  <button class = "fsSubmitButton" id = "save_button">Submit</button>
+
+</div>
+
+</div>
+
+                  </div>
+
+
+                </div><!-- /row -->
+              </fieldset><!-- /form-division -->
+              <hr>
+
+            </div>
+          </div>
+
+
+          <!-- Under 13 signup flow -->
+          <div class="under-13" style="display: none;">
+            <div class="row">
+              <div class="twelve columns">
+                <fieldset class="form-division">
+                  <h3><span class="form-step">4</span>Legal Guardian email address</h3>
+                  <p>Because you have selected an age below 13, a legal guardian must complete the sign up process. <strong>Please provide a legal guardians email address.</strong></p>
+                  <div class="row">
+                    <div class="form-item twelve columns">
+                    <label for="account_signup_account_manager_email">Email address <span>*</span></label>
+                    <input autocomplete="email" class="input-text input-text" type="email" name="account_signup[account_manager_email]" id="account_signup_account_manager_email" />
+</div>                  </div><!-- /row -->
+                  <p class="payment-note">We'll send a link in an email that will allow the sign up process to be finished.</p>
+                </fieldset><!-- /form-division -->
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="twelve columns">
+                <div class="form-footer">
+                  <button id="submit-button" type="submit" class="button primary large">Continue sign up</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- / under 13 -->
+
+          <!-- Normal Signup Flow -->
+
+
+
+
+  </section>
+</header>
+
+
+
+  <footer>
+<style>
+    .myButton {
+	background-color:#44c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+</style>
+
+  </footer>
+</section>
+
+  <!-- Dev Footer -->
+
+ <!-- yields content from within treehouse-tour paths. Find helper in application.helper -->
+
+<div id="contact_form" class="modal" data-featurette="modal" data-modal-video-autoplay="null" style="; display: none;">
+</div>  <div id="login-modal" class="modal" data-featurette="modal" style="; display: none;">
+    <div  class="row" >
+      <div  class="six columns centered" >
+        <section class="contained">
+          <button class="modal-close button x-small square secondary" data-modal-close="close"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 12 12" class="close-icon"><use xlink:href="/assets/icons-6762ca0f96a843e265c169ae01daf808.svg#close-icon"></use></svg></button>
+
+            <h1>Sign in</h1>
+
+          <form class="new_user_session" id="new_user_session" action="https://teamtreehouse.com/person_session?secure=true" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="VhgRxo4b5+tkJ1ZInRBE1iZsXrgfE2/B2zp3WRZAYMtUT59zhlDv+kT4maabgVQ88ltrtcRVYda6UWQQmvd0rw==" />
+          <input type="hidden" name="return_to" id="return_to" value="/home" class="input-hidden" />
+          <fieldset>
+            <div class="form-item">
+            <label for="user_session_email">Email Address</label>
+            <input autofocus="autofocus" autocomplete="email" class="input-text input-text" type="email" name="user_session[email]" id="user_session_email" />
+</div>          </fieldset>
+          <fieldset>
+            <div class="form-item">
+            <label for="user_session_password">Password</label>
+            <input autocomplete="current-password" class="input-text input-text" type="password" name="user_session[password]" id="user_session_password" />
+</div>          </fieldset>
+          <p class="forgot-password"><a href="/password_resets"><span class="icon icon-help-mini"></span>I forgot my password</a></p>
+          <button type="submit" class="button small marketing-login">Sign in</button>
+</form>        </section>
+      </div>
+    </div>
+</div>
+
+<div id="mini-profile-container"></div>
+<div id="tarp" class="modal-tarp" style="display: none;" data-featurette="tarp"></div>
+
+    <script src="https://static.teamtreehouse.com/assets/marketing_vendor-bd5846d5320068b84ac96366bd73305d.js"></script>
+    <script src="https://static.teamtreehouse.com/assets/braintree_vendor-8dc6c1dad4779e56242c9079708115e8.js"></script>
+    <script src="https://static.teamtreehouse.com/assets/logged_out-62b070cc40c5b66fb9582ceec684dd9b.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
+
+<script type="text/javascript">
+					$(document).ready(function() {
+					    $("#save_button").click(function () {
+					        $.ajax({
+					            url: "save/",
+					            type: "GET",
+					            data: {"last_name":$(".last_name_text")[0].value,"first_name":$(".first_name_text")[0].value,
+                                    "email_address":$(".email_address_text")[0].value,"street":$(".street_text")[0].value,
+                                    "city":$(".city_text")[0].value,"zip_code":$(".zip_code_text")[0].value,
+                                    "state":$("#state option:selected" ).text()
+					            },
+					            success: function (data) {
+                                    alert("Saved!");
+					            },
+					            error: function (data) {
+
+					            }
+					        });
+					    });
+					})
+</script>
+<style>
+    .fsSubmitButton
+{
+padding: 10px 15px 11px !important;
+font-size: 18px !important;
+background-color: #57d6c7;
+font-weight: bold;
+text-shadow: 1px 1px #57D6C7;
+color: #ffffff;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border: 1px solid #57D6C7;
+cursor: pointer;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+</style>
