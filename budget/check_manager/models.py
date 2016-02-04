@@ -8,10 +8,9 @@ class Check(models.Model):
     person = models.ForeignKey(Person,related_name = "check_giver",null = False, blank = False)
     amount = models.DecimalField(max_digits=7, decimal_places=2,null = False, blank = False)
     number = models.IntegerField(null = False)
-    pupose = models.CharField(max_length = 30,null = True, blank = True)
-
+    purpose = models.CharField(max_length = 30,null = True, blank = True)
 
 class Cash(models.Model):
     person = models.ForeignKey(Person,related_name = "cash_giver",null = True, blank = True)
     amount = models.DecimalField(max_digits=7, decimal_places=2,null = False, blank = False)
-    pupose = models.CharField(max_length = 30,null = True, blank = True)
+    purpose = models.CharField(max_length = 30,null = True, blank = True)

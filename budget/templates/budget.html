@@ -23,7 +23,15 @@
     </thead>
     <tbody id = "check_data">
       <tr>
-        <td><input value="First Last" class = "inputName CheckName"></td>
+        <td>
+            <div class="select-style">
+            <select id = "state" name="account_signup[age_check]" class="CheckName"><option value="">First Last</option>
+{% for user in all_names %}
+                <option value="lt13">{{ user }}</option>
+                {% endfor %}
+
+
+</select></div></td>
         <td><input class = "CheckCheck"></td>
         <td>$ <input value="0.00" class = "inputMoney check_amnt CheckMoney"></td>
       </tr>
@@ -50,7 +58,17 @@
     </thead>
     <tbody id = "cash_data">
       <tr>
-        <td><input value="First Last" class = "inputName CashName"></td>
+        <td>
+            <div class="select-style CashName inputName">
+            <select id = "state2" name="account_signup33" ><option value="">First Last</option>
+{% for user in all_names %}
+                <option value="lt13">{{ user }}</option>
+                {% endfor %}
+
+
+</select></div>
+
+        </td>
         <td>$ <input value="0.00" class = "inputMoney cash_amnt cash_amnt_col"></td>
       </tr>
     </tbody>
@@ -84,7 +102,19 @@
     </thead>
     <tbody id = "organization_data">
       <tr>
-        <td><input value="First Last" class = "inputName Org_Name"></td>
+        <td>
+                        <div class="select-style Org_Name inputName">
+            <select id = "state3" name="account_signup44"><option value="">First Last</option>
+{% for user in all_names %}
+                <option value="lt13">{{ user }}</option>
+                {% endfor %}
+
+
+</select></div>
+
+
+
+        </td>
         <td><input class = "OrgCheckCheck"></td>
         <td>$ <input value="0.00" class = "inputMoney org_money"></td>
       </tr>
@@ -110,7 +140,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><input value="First Last" class = "inputName"></td>
+        <td>                        <div class="select-style inputName DesignatedName">
+            <select id = "state4" name="account_signup[age_check]"><option value="">First Last</option>
+{% for user in all_names %}
+                <option value="lt13">{{ user }}</option>
+                {% endfor %}
+
+
+</select></div></td>
           <td><input></td>
         <td>$ <input value="0.00" class = "inputMoney moneyDesignation"></td>
         <td><input></td>
@@ -264,24 +301,24 @@
 
   $( document ).ready(function() {
     $( "#check_button" ).click(function() {
-        $('#check_table').append('<tr><td><input value="First Last" class = "inputName CheckName"></td><td><input class = "CheckCheck"></td><td>$ <input value="0.00" class = "inputMoney check_amnt checkMoney"></td></tr>');
+        $('#check_table').append('<tr><td><div class="select-style"><select id = "state" name="account_signup[age_check]" class="CheckName"><option value="">First Last</option>{% for user in all_names %}<option value="lt13">{{ user }}</option>{% endfor %}</select></div></td><td><input class = "CheckCheck"></td><td>$ <input value="0.00" class = "inputMoney check_amnt CheckMoney"></td></tr>');
         $("#Organization_Contribution_Title").css('top', '+=50');
         $("#organization_button").css('top','+=50');
         $("#checkCnt")[0].value = parseFloat($("#checkCnt")[0].value) + 1;
 
     });
        $( "#cash_button" ).click(function() {
-        $('#cash_table').append('<tr><td><input value="First Last" class = "inputName CashName"></td><td>$ <input value="0.00" class = "inputMoney cash_amnt cash_amnt_col"></td></tr>');
+        $('#cash_table').append('<tr><td><div class="select-style CashName inputName"><select id = "state2" name="account_signup33" ><option value="">First Last</option>{% for user in all_names %}<option value="lt13">{{ user }}</option>{% endfor %}</select></div></td><td>$ <input value="0.00" class = "inputMoney cash_amnt cash_amnt_col"></td></tr>');
            $("#Designated_Offering_Title").css('top', '+=50');
            $("#designated_button").css('top','+=50');
            $("#cashCnt")[0].value = parseFloat($("#cashCnt")[0].value) + 1;
     });
        $( "#organization_button" ).click(function() {
-        $('#organization_table').append('<tr><td><input value="First Last" class = "inputName Org_Name"></td><td><input class = "OrgCheckCheck"></td><td>$ <input value="0.00" class = "inputMoney org_money"></td></tr>');
+        $('#organization_table').append('<tr><td><div class="select-style Org_Name inputName"><select id = "state3" name="account_signup44"><option value="">First Last</option>{% for user in all_names %}<option value="lt13">{{ user }}</option>{% endfor %}</select></div></td><td><input class = "OrgCheckCheck"></td><td>$ <input value="0.00" class = "inputMoney org_money"></td></tr>');
         $("#contCnt")[0].value = parseFloat($("#contCnt")[0].value) + 1;
     });
        $( "#designated_button" ).click(function() {
-        $('#designated_table').append('<tr><td><input value="First Last" class = "inputName"></td><td><input></td><td>$ <input value="0.00" class = "inputMoney moneyDesignation"></td><td><input></td></tr>');
+        $('#designated_table').append('<tr><td> <div class="select-style inputName DesignatedName"><select id = "state4" name="account_signup[age_check]"><option value="">First Last</option>{% for user in all_names %}<option value="lt13">{{ user }}</option>{% endfor %}</select></div></td><td><input></td><td>$ <input value="0.00" class = "inputMoney moneyDesignation"></td><td><input></td></tr>');
         $("#desigCnt")[0].value = parseFloat($("#desigCnt")[0].value) + 1;
     });
       $('.inputName').on('click focusin', function() {
@@ -392,26 +429,32 @@
                             for(var i = 0; i < t5.length; i++) {
                                 s5 += t5[i].value + " ";
                             }
-                            t6 = $(".CheckName");
+                            t6 = $(".CheckName  option:selected")
                             s6 = ""
                             for(var i = 0; i < t6.length; i++) {
-                                s6 += t6[i].value + " ";
+                                s6 += t6[i].text + "_";
                             }
-                            t7 = $(".CashName");
+                            t7 = $(".CashName  option:selected")
                             s7 = ""
                             for(var i = 0; i < t7.length; i++) {
-                                s7 += t7[i].value + " ";
+                                s7 += t7[i].text + "_";
                             }
                             t8 = $(".OrgCheckCheck");
                             s8 = ""
                             for(var i = 0; i < t8.length; i++) {
                                 s8 += t8[i].value + " ";
                             }
-                            t9 = $(".Org_Name");
+                            t9 = $(".Org_Name  option:selected")
                             s9 = ""
                             for(var i = 0; i < t9.length; i++) {
-                                s9 += t9[i].value + " ";
+                                s9 += t9[i].text + "_";
                             }
+                            t10 = $(".DesignatedName  option:selected")
+                            s10 = ""
+                            for(var i = 0; i < t10.length; i++) {
+                                s10 += t10[i].text + "_";
+                            }
+
 					        $.ajax({
 					            url: "/budget/save/",
 					            type: "GET",
@@ -419,7 +462,7 @@
                                     "Check_String":s,"Org_String":s2,
                                     "Cash_String":s3,"Desig_String":s4,
                                     "Cash_Name":s7,"Check_Name":s6,"Check_Number":s5,
-                                    "Org_Name":s9,"OrgCheck_Value":s8
+                                    "Org_Name":s9,"OrgCheck_Value":s8,"DesignatedName":s10
 					            },
 					            success: function (data) {
                                     alert("Saved!");
@@ -431,3 +474,32 @@
 					    });
 					})
 </script>
+<style>
+    .select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+
+
+}
+
+.select-style select {
+    padding: 5px 5px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+</style>
